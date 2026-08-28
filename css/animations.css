@@ -1,0 +1,88 @@
+  /* ── MICRO ANIMATIONS: every clickable element gets smooth hover/press feedback ── */
+  button, .clickable, [onclick] {
+    transition: transform 0.15s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s ease, filter 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  }
+  button:not(.no-lift):hover { filter: brightness(1.08); }
+  button:not(.no-lift):active { transform: scale(0.96); transition-duration: 0.08s; }
+
+  .card:hover, .admin-card:hover, .stat-card:hover, .team-item:hover, .match-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    border-color: var(--green); /* fallback for browsers without color-mix() support */
+    border-color: color-mix(in srgb, var(--green) 35%, var(--border));
+  }
+  [data-theme="dark"] .card:hover,
+  [data-theme="dark"] .admin-card:hover,
+  [data-theme="dark"] .stat-card:hover,
+  [data-theme="dark"] .team-item:hover,
+  [data-theme="dark"] .match-card:hover {
+    box-shadow: var(--shadow-lg), 0 0 0 1px rgba(34,211,238,0.15);
+  }
+
+  /* These badge/status colors were hardcoded light-mode pastels (yellow,
+     pink, grey chips with dark text) that read as washed-out, low-contrast
+     patches against the dark background/text colors. Give dark mode its
+     own muted-but-legible versions instead of inheriting the light ones. */
+  [data-theme="dark"] .alert.error,
+  [data-theme="dark"] .team-modal-result-L,
+  [data-theme="dark"] .tl-icon.red,
+  [data-theme="dark"] .tl-icon.owngoal {
+    background: rgba(255,92,92,0.18); color: #FF8A8A;
+  }
+  [data-theme="dark"] .team-modal-result-D,
+  [data-theme="dark"] .tl-icon.yellow,
+  [data-theme="dark"] .qual-c {
+    background: rgba(255,215,0,0.16); color: #FFE066;
+  }
+  [data-theme="dark"] .tl-icon.sub {
+    background: rgba(124,147,173,0.22);
+  }
+  [data-theme="dark"] .qual-e {
+    background: rgba(124,147,173,0.16); color: var(--muted);
+  }
+  [data-theme="dark"] #unsaved-file-banner {
+    background: rgba(255,215,0,0.1); border-color: rgba(255,215,0,0.35);
+  }
+  [data-theme="dark"] #unsaved-file-banner span {
+    color: #FFE066;
+  }
+
+  /* ============================================================
+     RIPPLE
+     ============================================================ */
+  .ripple-el {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    transform: scale(0);
+    animation: rippleAnim 0.6s ease-out;
+    pointer-events: none;
+  }
+  @keyframes rippleAnim {
+    to { transform: scale(2.6); opacity: 0; }
+  }
+
+  .btn-sm {
+    padding: var(--space-2) var(--space-5);
+    font-size: 0.78rem;
+  }
+
+  .admin-actions {
+    margin-top: var(--space-7);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .alert {
+    padding: var(--space-5) var(--space-7);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    display: none;
+  }
+
+  .alert.success { background: var(--green-light); color: var(--green-dark); display: block; }
+  .alert.error { background: #f8d7da; color: #721c24; display: block; }
+

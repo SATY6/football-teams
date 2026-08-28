@@ -1,0 +1,157 @@
+  /* ── HOME DASHBOARD ── */
+  .dashboard-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem 1.2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    transition: box-shadow var(--transition-base), transform var(--transition-base);
+    cursor: default;
+  }
+  .dashboard-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+
+  .dashboard-card-label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dashboard-vs-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) 0 var(--space-5);
+  }
+
+  .dashboard-team-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  .dashboard-badge {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #fff;
+    background: var(--green-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .dashboard-team-name {
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .dashboard-vs {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--muted);
+    letter-spacing: 1px;
+    flex-shrink: 0;
+  }
+
+  .dashboard-score {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    letter-spacing: 3px;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .dashboard-meta {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--green-dark);
+    letter-spacing: 0.5px;
+  }
+
+  .dashboard-sub {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .dashboard-mini-stat {
+    text-align: center;
+    background: var(--bg);
+    border-radius: 8px;
+    padding: var(--space-6) var(--space-4);
+    border: 1px solid var(--border);
+  }
+
+  .dashboard-mini-val {
+    font-family: var(--font-display);
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    line-height: 1;
+  }
+
+  .dashboard-mini-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-top: var(--space-2);
+  }
+
+  /* ============================================================
+     QUICK STATS BAR
+     ============================================================ */
+  .team-modal-stats-bar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .team-modal-stat-cell {
+    text-align: center;
+    padding: var(--space-6) var(--space-3);
+    border-right: 1px solid var(--border);
+  }
+  .team-modal-stat-cell:last-child { border-right: none; }
+
+  .team-modal-stat-val {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    line-height: 1;
+  }
+
+  .team-modal-stat-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+

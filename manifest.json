@@ -1,0 +1,10 @@
+{
+  "name": "SLIET Football Tournament",
+  "short_name": "SLIET FC",
+  "description": "Follow the SLIET Football Tournament live — points table, fixtures & results, player stats, top scorers, brackets, and news, all in one place.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F4F6FA",
+  "theme_color": "#0A1F30",
+  "icons": []
+}

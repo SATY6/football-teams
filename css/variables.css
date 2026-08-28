@@ -1,0 +1,89 @@
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root {
+    /* — Color: brand — */
+    --green: #0EA5B8;
+    --green-2: #14B8A6;
+    --green-dark: #0B1E33;
+    --green-light: #E0FBFA;
+    --gold: #F5B841;
+    --gold-dark: #D89B22;
+    --gold-highlight: #FFF8EA;
+    --gold-text: #9F6B08; /* WCAG AA fix: --gold itself is 1.78:1 as text on light backgrounds (fails); this hits 4.58:1 */
+
+    /* — Color: surface & text — */
+    --white: #F8FAFC;
+    --bg: #F4F6FA;
+    --card: #FFFFFF;
+    --text: #0F1B2B;
+    --muted: #637289; /* WCAG AA fix: darkened from #64748B (was 4.40:1 on --bg, now 4.52:1) */
+    --border: #E4E9F1;
+    --danger: #E5484D;
+
+    /* — Spacing scale (4px base) — */
+    --space-1: 2px;
+    --space-2: 4px;
+    --space-3: 6px;
+    --space-4: 8px;
+    --space-5: 10px;
+    --space-6: 12px;
+    --space-7: 14px;
+    --space-8: 16px;
+    --space-9: 18px;
+    --space-10: 20px;
+    --space-12: 24px;
+    --space-14: 28px;
+    --space-16: 32px;
+    --space-20: 40px;
+    --space-24: 48px;
+
+    /* — Radius — */
+    --radius-sm: 10px;
+    --radius: 16px;
+    --radius-lg: 22px;
+    --radius-pill: 999px;
+
+    /* — Elevation — */
+    --shadow-sm: 0 1px 2px rgba(15,27,43,0.04), 0 1px 1px rgba(15,27,43,0.03);
+    --shadow-md: 0 4px 12px rgba(15,27,43,0.06), 0 1px 3px rgba(15,27,43,0.05);
+    --shadow-lg: 0 16px 40px rgba(15,27,43,0.12), 0 4px 12px rgba(15,27,43,0.06);
+    --shadow-glow: 0 8px 28px rgba(14,165,184,0.22);
+
+    /* — Motion — */
+    --ease: cubic-bezier(.22,1,.36,1);
+    --transition-fast: 0.15s var(--ease);
+    --transition-base: 0.25s var(--ease);
+    --transition-slow: 0.4s var(--ease);
+
+    /* — Typography — */
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  [data-theme="dark"] {
+    --green: #22D3EE;
+    --green-2: #2DD4BF;
+    --green-dark: #0B1E33;
+    --green-light: #103848;
+    --gold: #F7C15C;
+    --gold-dark: #E0A83D;
+    --gold-text: #F7C15C; /* already 10.19:1 as text on dark cards, no darkening needed */
+    --white: #F8FAFC;
+    --bg: #060D18;
+    --card: #101E30;
+    --text: #F1F5F9;
+    --muted: #8CA0B8;
+    --border: #223247;
+    --danger: #FF6B70;
+    --gold-highlight: rgba(247,193,92,0.08);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 6px 16px rgba(0,0,0,0.35);
+    --shadow-lg: 0 20px 48px rgba(0,0,0,0.5), 0 4px 14px rgba(0,0,0,0.4);
+    --shadow-glow: 0 8px 28px rgba(34,211,238,0.25);
+  }
+
+  body, .card, .admin-card, .stat-card, header {
+    transition: background var(--transition-base), color var(--transition-base), border-color var(--transition-base);
+  }
+

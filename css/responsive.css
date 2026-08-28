@@ -1,0 +1,17 @@
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 768px) {
+    #desktop-nav { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @media (max-width: 640px) {
+    .match-card { grid-template-columns: 1fr; text-align: center; }
+    .match-team.right { justify-content: center; flex-direction: row; }
+    .logo-text { font-size: 0.95rem; }
+    .section-title { font-size: 1.5rem; }
+    .hero-cd-unit span { font-size: 1.6rem; width: 54px; }
+    .hero-cd-sep { font-size: 1.5rem; }
+    .dashboard-score { font-size: 1.5rem; }
+  }

@@ -1,0 +1,405 @@
+  /* ============================================================
+     HERO SECTION
+     ============================================================ */
+  #hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #030B14;
+  }
+
+  /* Stadium SVG background layers */
+  .hero-stadium {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  /* Night sky */
+  .hero-sky {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, #0A1F30 0%, #030B14 60%);
+  }
+
+  /* Stars */
+  .stars {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .star {
+    position: absolute;
+    background: var(--card);
+    border-radius: 50%;
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+  }
+
+  @keyframes twinkle {
+    0%,100% { opacity: var(--min, 0.2); transform: scale(1); }
+    50%      { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* Stadium structure */
+  .hero-stands {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 55%;
+    background: linear-gradient(to top, #0d1f0d 0%, #0a180a 40%, transparent 100%);
+  }
+
+  /* Flood lights */
+  .floodlight {
+    position: absolute;
+    top: 8%;
+    width: 3px;
+    height: 28%;
+    background: linear-gradient(to bottom, #fff 0%, #e8f5e8 60%, transparent 100%);
+    border-radius: 2px;
+  }
+
+  .floodlight::before {
+    content: '';
+    position: absolute;
+    top: -8px; left: 50%;
+    transform: translateX(-50%);
+    width: 14px; height: 14px;
+    background: var(--card);
+    border-radius: 50%;
+    box-shadow: 0 0 20px 10px rgba(255,255,200,0.9), 0 0 60px 30px rgba(255,255,150,0.4);
+  }
+
+  .floodlight::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-top: 220px solid rgba(255,255,200,0.04);
+    filter: blur(8px);
+  }
+
+  .fl-left  { left: 8%; }
+  .fl-right { right: 8%; }
+
+  /* Pitch glow */
+  .pitch-glow {
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80%; height: 220px;
+    background: radial-gradient(ellipse at center bottom, rgba(0,180,0,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Crowd lights (colored dots) */
+  .crowd-row {
+    position: absolute;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .crowd-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    animation: crowdPulse var(--cd, 2s) ease-in-out infinite var(--cdelay, 0s);
+    opacity: 0.7;
+  }
+
+  @keyframes crowdPulse {
+    0%,100% { opacity: 0.4; transform: scale(0.8); }
+    50%      { opacity: 1;   transform: scale(1.2); }
+  }
+
+  /* Fog layers */
+  .fog {
+    position: absolute;
+    left: -20%; right: -20%;
+    height: 120px;
+    border-radius: 50%;
+    filter: blur(30px);
+    pointer-events: none;
+    animation: fogDrift var(--fd, 12s) ease-in-out infinite alternate;
+  }
+
+  @keyframes fogDrift {
+    from { transform: translateX(-4%) scaleY(1); opacity: var(--fo, 0.12); }
+    to   { transform: translateX(4%)  scaleY(1.15); opacity: calc(var(--fo, 0.12) * 1.4); }
+  }
+
+  /* Player silhouettes */
+  .players-layer {
+    position: absolute;
+    bottom: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    max-width: 90vw;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0;
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     HERO CONTENT
+     ============================================================ */
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem 1.5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+  }
+
+  /* Ball */
+  .hero-ball {
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    animation: ballFloat 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(255,255,255,0.25));
+    line-height: 1;
+  }
+  @keyframes ballFloat {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-18px) rotate(20deg); }
+  }
+
+  /* Title block */
+  .hero-title-block { display:flex; flex-direction:column; align-items:center; gap: 0; }
+
+  .hero-year {
+    font-family: var(--font-display);
+    font-size: clamp(0.75rem, 2vw, 0.95rem);
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 14vw, 8rem);
+    font-weight: 800;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 0.9;
+    text-shadow: 0 0 80px rgba(255,255,255,0.1), 0 4px 40px rgba(0,0,0,0.95);
+  }
+
+  .hero-cup {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 7vw, 4.8rem);
+    font-weight: 800;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    line-height: 1;
+    text-shadow: 0 0 50px rgba(245,166,35,0.6);
+  }
+
+  .hero-cup-year {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.5em;
+    letter-spacing: 4px;
+    vertical-align: middle;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-display);
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    font-weight: 600;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 2px;
+    font-style: italic;
+    margin-top: var(--space-4);
+  }
+
+  /* ============================================================
+     COUNTDOWN
+     ============================================================ */
+  .hero-countdown { display:flex; flex-direction:column; align-items:center; gap: var(--space-5); }
+
+  .hero-cd-label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+
+  .hero-cd-boxes { display:flex; align-items:center; gap: var(--space-3); }
+
+  .hero-cd-unit { display:flex; flex-direction:column; align-items:center; gap: 5px; }
+
+  .hero-cd-unit span {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    font-weight: 800;
+    color: #fff;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 10px;
+    width: clamp(64px, 15vw, 88px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-2);
+    backdrop-filter: blur(8px);
+    transition: color var(--transition-slow);
+  }
+
+  .hero-cd-unit span:last-child {
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.38);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .hero-cd-sep {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 6vw, 3rem);
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: var(--space-10);
+    animation: sepBlink 1s ease infinite;
+  }
+  @keyframes sepBlink {
+    0%,100% { opacity:1; }
+    50%      { opacity:0.2; }
+  }
+
+  /* ============================================================
+     LIVE BADGE
+     ============================================================ */
+  .hero-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-5);
+    background: rgba(192,57,43,0.92);
+    color: #fff;
+    padding: var(--space-5) var(--space-14);
+    border-radius: 40px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 0 40px rgba(192,57,43,0.5);
+    animation: livePulse 1.5s ease infinite;
+  }
+  @keyframes livePulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(192,57,43,0.5), 0 0 40px rgba(192,57,43,0.4); }
+    50%      { box-shadow: 0 0 0 16px rgba(192,57,43,0), 0 0 40px rgba(192,57,43,0.4); }
+  }
+
+  .hero-live-dot {
+    width: 10px; height: 10px;
+    background: var(--card);
+    border-radius: 50%;
+    animation: dotBlink 1s ease infinite;
+  }
+  @keyframes dotBlink {
+    0%,100% { opacity:1; }
+    50%      { opacity:0.2; }
+  }
+
+  /* ============================================================
+     HERO BUTTONS
+     ============================================================ */
+  .hero-btns {
+    display: flex;
+    gap: var(--space-7);
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: var(--space-2);
+  }
+
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: 15px 36px;
+    border-radius: 8px;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border: none;
+    transition: all var(--transition-base);
+  }
+
+  .hero-btn-primary {
+    background: var(--gold);
+    color: #fff;
+    box-shadow: 0 4px 28px rgba(245,166,35,0.45);
+  }
+  .hero-btn-primary:hover {
+    background: var(--gold-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 36px rgba(245,166,35,0.55);
+  }
+
+  .hero-btn-outline {
+    background: rgba(255,255,255,0.07);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    backdrop-filter: blur(6px);
+  }
+  .hero-btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-3px);
+  }
+
+  /* ============================================================
+     SCROLL HINT
+     ============================================================ */
+  .hero-scroll {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.68rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: var(--font-display);
+    animation: scrollBounce 2s ease-in-out infinite;
+    cursor: pointer;
+    z-index: 10;
+    background: none;
+    border: none;
+  }
+  @keyframes scrollBounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(8px); }
+  }
+

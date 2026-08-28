@@ -1,0 +1,139 @@
+  /* ============================================================
+     ADMIN
+     ============================================================ */
+  .admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-10);
+  }
+
+  .admin-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .admin-card-header {
+    background: var(--green-dark);
+    color: #fff;
+    padding: var(--space-6) var(--space-9);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .admin-body { padding: var(--space-9); }
+
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: var(--space-2);
+    margin-top: var(--space-5);
+  }
+
+  label:first-child { margin-top: 0; }
+
+  input, select, textarea {
+    width: 100%;
+    padding: var(--space-4) var(--space-6);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: var(--text);
+    background: var(--bg);
+    transition: border-color var(--transition-base);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--green);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .btn {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-10);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base), color var(--transition-base), filter var(--transition-base);
+    will-change: transform;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn:active { transform: translateY(0) scale(0.97); transition-duration: 0.08s; }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--green), var(--green-2));
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(14,165,184,0.25);
+  }
+  .btn-primary:hover { box-shadow: var(--shadow-glow); filter: brightness(1.05); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--green-dark);
+    box-shadow: 0 2px 8px rgba(245,184,65,0.28);
+  }
+  .btn-gold:hover { box-shadow: 0 8px 26px rgba(245,184,65,0.4); filter: brightness(1.05); }
+
+  .btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+  }
+  .btn-danger:hover { background: var(--danger); color: #fff; box-shadow: 0 8px 22px rgba(229,72,77,0.32); }
+
+  /* ============================================================
+     TEAM MANAGER
+     ============================================================ */
+  .team-list { padding: var(--space-6); display: flex; flex-direction: column; gap: var(--space-4); }
+
+  .team-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-4) var(--space-6);
+    background: var(--bg);
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .team-item .team-badge { width: 28px; height: 28px; font-size: 0.65rem; }
+  .team-item span { flex: 1; font-weight: 600; font-size: 0.9rem; }
+
+  /* ============================================================
+     SCORE UPDATE
+     ============================================================ */
+  .match-select-row {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  /* ============================================================
+     ADMIN IN MODAL
+     ============================================================ */
+  .md-admin-body { padding: var(--space-8); }
+

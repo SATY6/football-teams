@@ -1,0 +1,193 @@
+  /* ============================================================
+     STATS
+     ============================================================ */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-10);
+    margin-bottom: var(--space-12);
+  }
+
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .stat-card-header {
+    background: var(--green-dark);
+    color: #fff;
+    padding: var(--space-5) var(--space-8);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .stat-list { list-style: none; }
+
+  .stat-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding: var(--space-5) var(--space-8);
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    transition: background var(--transition-fast);
+    cursor: default;
+  }
+
+  .stat-item:last-child { border-bottom: none; }
+  .stat-item:hover { background: var(--green-light); }
+
+  .stat-rank {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--muted);
+    width: 24px;
+    text-align: center;
+  }
+
+  .stat-rank.top { color: var(--gold-text); }
+
+  .stat-bar-wrap {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .stat-label {
+    font-weight: 600;
+    min-width: 110px;
+    font-size: 0.88rem;
+  }
+
+  .stat-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .stat-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--green);
+    transition: width var(--transition-slow);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--green-dark);
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* ============================================================
+     MATCH STATS BAR
+     ============================================================ */
+  .ms-row {
+    display: grid;
+    grid-template-columns: 52px 1fr 52px;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-8);
+    border-bottom: 1px solid var(--border);
+  }
+  .ms-row:last-child { border-bottom: none; }
+
+  .ms-val {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+    text-align: center;
+  }
+
+  .ms-bar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    align-items: center;
+  }
+
+  .ms-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .ms-bar-track {
+    width: 100%;
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+  }
+
+  .ms-bar-home {
+    height: 100%;
+    background: var(--green);
+    border-radius: 3px 0 0 3px;
+    transition: width var(--transition-slow);
+  }
+
+  .ms-bar-away {
+    height: 100%;
+    background: #c0392b;
+    border-radius: 0 3px 3px 0;
+    transition: width var(--transition-slow);
+  }
+
+  /* ============================================================
+     STAT BARS IN TEAM PAGE
+     ============================================================ */
+  .team-modal-stat-bar-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .team-modal-stat-bar-row:last-child { border-bottom: none; }
+  .team-modal-stat-bar-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--muted);
+    width: 130px;
+    flex-shrink: 0;
+  }
+  .team-modal-stat-bar-track {
+    flex: 1;
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .team-modal-stat-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width var(--transition-slow);
+  }
+  .team-modal-stat-bar-val {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--green-dark);
+    width: 28px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
